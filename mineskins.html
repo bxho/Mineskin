@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ماين سكنز - موقع سكنات ماين كرافت</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- قائمة التنقل -->
+<nav class="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navMenu">
+        <li><a href="#popular-skins">السكنات الشائعة</a></li>
+        <li><a href="#editor">محرر السكنات</a></li>
+        <li><a href="#upload-skin">إنشاء التوتم والفأرة</a></li>
+        <li><a href="#login">تسجيل الدخول</a></li>
+    </ul>
+</nav>
+
+<!-- خلفية الصفحة -->
+<div class="background"></div>
+
+<header>
+    <h1>مرحبًا بك في ماين سكنز</h1>
+    <p>اكتشف أفضل السكنات وخصص تجربتك في ماين كرافت!</p>
+</header>
+
+<div class="container">
+
+    <!-- السكنات الشائعة -->
+    <div id="popular-skins" class="skins-section">
+        <h2>السكنات الشائعة</h2>
+        <div class="skin-grid">
+            <div class="skin-card">
+                <img src="https://example.com/skin1.png" alt="سكن 1">
+                <h3>سكن 1</h3>
+                <a href="https://example.com/skin1_download">تحميل</a>
+            </div>
+            <div class="skin-card">
+                <img src="https://example.com/skin2.png" alt="سكن 2">
+                <h3>سكن 2</h3>
+                <a href="https://example.com/skin2_download">تحميل</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- محرر السكنات -->
+    <div id="editor" class="editor-section">
+        <h2>محرر السكنات</h2>
+        <p>يمكنك تعديل السكنات هنا.</p>
+        <button onclick="alert('قريبًا!')">افتح المحرر</button>
+    </div>
+
+    <!-- قسم رفع السكن -->
+    <div id="upload-skin" class="upload-section">
+        <h2>إنشاء التوتم ومؤشر الفأرة</h2>
+        <form id="skinUploadForm" enctype="multipart/form-data">
+            <label for="skinFile">قم برفع السكن الخاص بك:</label>
+            <input type="file" id="skinFile" accept=".png">
+            <button type="button" onclick="processSkin()">إنشاء التوتم والفأرة</button>
+        </form>
+        <div id="outputSection" style="display: none; margin-top: 20px;">
+            <h3>النتائج:</h3>
+            <p>التوتم:</p>
+            <img id="totemImage" src="" alt="التوتم" style="max-width: 100%; height: auto;">
+            <a id="downloadTotem" href="#" download>تحميل التوتم</a>
+            <p>مؤشر الفأرة:</p>
+            <img id="cursorImage" src="" alt="الفأرة" style="max-width: 100%; height: auto;">
+            <a id="downloadCursor" href="#" download>تحميل الفأرة</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 ماين سكنز. جميع الحقوق محفوظة.</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function processSkin() {
+        const skinFile = document.getElementById('skinFile').files[0];
+        if (!skinFile) {
+            alert("يرجى اختيار ملف السكن.");
+            return;
+        }
+
+        const outputSection = document.getElementById('outputSection');
+        const totemImage = document.getElementById('totemImage');
+        const cursorImage = document.getElementById('cursorImage');
+        const downloadTotem = document.getElementById('downloadTotem');
+        const downloadCursor = document.getElementById('downloadCursor');
+
+        // Placeholder for processed images
+        totemImage.src = "https://example.com/totem_example.png";
+        cursorImage.src = "https://example.com/cursor_example.png";
+        downloadTotem.href = totemImage.src;
+        downloadCursor.href = cursorImage.src;
+
+        outputSection.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
